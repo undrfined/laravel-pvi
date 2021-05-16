@@ -23,7 +23,12 @@ class UserController extends Controller
             return ['ok' => false, 'messages' => $validator->messages()];
         }
 
-        return ['ok' => true, "avatar" => "https://i.stack.imgur.com/dr5qp.jpg"];
+        $gamer = Gamer::where('email', $request->input("login"))->where('password', $request->input("password"))->first();
+        if(!$gamer) {
+            return ['ok' => false, 'messages' => [ "a" => "email is taken" ]];
+        }
+
+        return ['ok' => true, "avatar" => "https://i.stack.imgur.com/dr5qp.jpg", "level" => $gamer];
     }
 
     public function register(Request $request)
