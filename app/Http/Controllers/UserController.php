@@ -40,7 +40,7 @@ class UserController extends Controller
             return ['ok' => false, 'messages' => $validator->messages()];
         }
 
-        if(Gamer::firstWhere('email', $request->input("login")) {
+        if(Gamer::firstWhere('email', $request->input("login"))) {
             return ['ok' => false, 'messages' => [ "a" => "email is taken" ]];
         }
 
