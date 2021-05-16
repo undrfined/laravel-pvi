@@ -25,7 +25,7 @@ class UserController extends Controller
 
         $gamer = Gamer::where('email', $request->input("login"))->where('password', $request->input("password"))->first();
         if(!$gamer) {
-            return ['ok' => false, 'messages' => [ "a" => "email is taken" ]];
+            return ['ok' => false, 'messages' => [ "a" => "no such user or password is invalid" ]];
         }
 
         return ['ok' => true, "avatar" => "https://i.stack.imgur.com/dr5qp.jpg", "level" => $gamer->skill];
