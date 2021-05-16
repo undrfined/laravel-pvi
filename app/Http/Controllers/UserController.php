@@ -49,6 +49,8 @@ class UserController extends Controller
             'password' => $request->input("password"),
         ]);
 
+        $gamer->save();
+
         return ['ok' => true, "avatar" => "https://i.stack.imgur.com/dr5qp.jpg", $gamer];
     }
 }
