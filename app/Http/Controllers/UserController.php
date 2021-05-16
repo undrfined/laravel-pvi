@@ -28,7 +28,7 @@ class UserController extends Controller
             return ['ok' => false, 'messages' => [ "a" => "email is taken" ]];
         }
 
-        return ['ok' => true, "avatar" => "https://i.stack.imgur.com/dr5qp.jpg", "level" => $gamer];
+        return ['ok' => true, "avatar" => "https://i.stack.imgur.com/dr5qp.jpg", "level" => $gamer->skill];
     }
 
     public function register(Request $request)
