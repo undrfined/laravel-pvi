@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function login(Request $request)
     {
-        $users = DB::select('select * from users where active = ?', [1]);
+        $users = DB::select('select * from gamers');
         $validator = Validator::make($request->all(), [
             'login' => 'required|email|min:6|max:64|regex:/^\S+@\S+$/',
             'password' => 'required|min:6|max:32|regex:/[a-zA-Z0-9]+/'
